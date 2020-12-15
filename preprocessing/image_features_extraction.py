@@ -10,7 +10,8 @@ import torchvision.models as models
 import yaml
 from torch.autograd import Variable
 from tqdm import tqdm
-
+import sys
+sys.path.append("..")
 from datasets.images import ImageDataset, get_transform
 
 
@@ -44,7 +45,7 @@ class NetFeatureExtractor(nn.Module):
 def main():
     # Load config yaml file
     parser = argparse.ArgumentParser()
-    parser.add_argument('--path_config', default='config/default.yaml', type=str,
+    parser.add_argument('--path_config', default='../config/default.yaml', type=str,
                         help='path to a yaml config file')
     args = parser.parse_args()
 

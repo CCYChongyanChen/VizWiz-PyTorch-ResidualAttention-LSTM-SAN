@@ -1,22 +1,22 @@
 logs:
     dir_logs: logs/vizwiz/
 annotations:
-    dir: ../data_vizwiz/Annotations
+    dir: /data/vqa/annotations/VizWiz/VizWiz_QA/Annotations
     top_ans: 3000
     max_length: 26
     min_count_word: 0
-    path_vocabs: ./prepro_data/vocabs.json
+    path_vocabs: /data/vqa/annotations/VizWiz/VizWiz_QA/Annotations/prepro_data/vocabs.json
 images:
-    dir: ../data_vizwiz/Images
+    dir: /data/vqa/datasets/VizWiz/Images
     arch: ResNet152
     mode: att
     img_size: 448
-    preprocess_batch_size: 4
-    preprocess_data_workers: 4
-    path_features: ./prepro_data/resnet14x14.h5
+    preprocess_batch_size: 1
+    preprocess_data_workers: 1
+    path_features: /data/vqa/feats/VizWiz/prepro_data/resnet14x14.h5
 model:
 # Could be added new architectures and hyper-parameters like activations etc
-    pretrained_model:  #./logs/... # leave empty if no pretrained model is available
+    pretrained_model:  ./logs/vizwiz/2020-12-14_19:18:08/best_accuracy_log.pth # leave empty if no pretrained model is available
     seq2vec:
         dropout: 0.25
         emb_size: 300
@@ -40,7 +40,7 @@ training:
     data_workers: 4
 
 prediction:
-    model_path: ./logs/vizwiz/2018-09-20_13:04:05/final_log.pth
+    model_path: ./logs/vizwiz/2018-09-20_13:04:05/final_log2.pth
     split: test
-    submission_file: ./predictions/default_pred.json
+    submission_file: ./predictions/default_pred2.json
 

@@ -7,9 +7,10 @@ from itertools import takewhile
 from pprint import pprint
 
 import yaml
+import sys
+from preprocessing_utils import prepare_questions, prepare_answers
 
-from preprocessing.preprocessing_utils import prepare_questions, prepare_answers
-
+sys.path.append("..") 
 
 def create_question_vocab(questions, min_count=0):
     """
@@ -72,7 +73,7 @@ def main():
         'question': question_vocab,
         'answer': answer_vocab,
     }
-
+    print(config['annotations']['path_vocabs'])
     with open(config['annotations']['path_vocabs'], 'w') as fd:
         json.dump(vocabs, fd)
 
