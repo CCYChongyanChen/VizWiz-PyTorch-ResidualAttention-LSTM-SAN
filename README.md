@@ -23,6 +23,7 @@ This loss function better aligns to the [VQA evaluation metric][4] used to evalu
 | method       | accuracy |
 |--------------|----------|
 | [VizWiz Paper][0] | 0.475    |
+| SAN        | 0.516    |
 | **Ours**         | **0.516**    |
 
 
@@ -31,7 +32,7 @@ This loss function better aligns to the [VQA evaluation metric][4] used to evalu
 ```
 conda create --name viz_env python=3.6
 source activate viz_env
-pip install -r requirements.txt
+pip install -r requirements_latest.txt
 ```
 
 - Download and extract the [VizWiz dataset][0]
@@ -82,12 +83,12 @@ python predict.py
 ## Acknowledgment
 
 
-
+- https://github.com/DenisDsh/VizWiz-VQA-PyTorch
+- https://github.com/weiaicunzai/pytorch-cifar100
 - https://github.com/liqing-ustc/VizWiz_LSTM_CNN_Attention/
 - https://github.com/Cadene/vqa.pytorch
 - https://github.com/GT-Vision-Lab/VQA_LSTM_CNN
 - https://github.com/Cyanogenoid/pytorch-vqa
-
 
 
 [0]: http://vizwiz.org/data/
@@ -95,4 +96,3 @@ python predict.py
 [2]: https://arxiv.org/pdf/1511.02274
 [3]: https://arxiv.org/abs/1708.00584
 [4]: https://arxiv.org/pdf/1505.00468v6.pdf
-
