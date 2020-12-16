@@ -145,8 +145,9 @@ def main():
     model = nn.DataParallel(models.Model(config, train_loader.dataset.num_tokens)).cuda()
 
     optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()),
-                                 config['training']['lr'])
-
+                                 config['training']['lr'], weight_decay = 1e-5)
+    scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, [10,20,30,40], gamma=0.1)
+    scheduler.step(0)
     # Load model weights if necessary
     if config['model']['pretrained_model'] is not None:
         print("Loading Model from %s" % config['model']['pretrained_model'])

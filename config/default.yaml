@@ -16,7 +16,7 @@ images:
     path_features: /data/vqa/feats/VizWiz/prepro_data/resnet14x14.h5
 model:
 # Could be added new architectures and hyper-parameters like activations etc
-    pretrained_model:  ./logs/vizwiz/2020-12-14_19:18:08/best_accuracy_log.pth # leave empty if no pretrained model is available
+    pretrained_model:  # leave empty if no pretrained model is available
     seq2vec:
         dropout: 0.25
         emb_size: 300
@@ -34,13 +34,13 @@ model:
         dropout: 0.5
 training:
     train_split: train
-    lr: 0.001
+    lr: 0.01
     batch_size: 128
     epochs: 50
     data_workers: 4
 
 prediction:
-    model_path: ./logs/vizwiz/2018-09-20_13:04:05/final_log2.pth
+    model_path: ./logs/vizwiz/2020-12-14_22:58:25/best_accuracy_log.pth
     split: test
-    submission_file: ./predictions/default_pred2.json
+    submission_file: ./predictions/pred1.json
 
